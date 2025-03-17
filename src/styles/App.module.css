@@ -1,0 +1,14 @@
+.appContainer {
+  text-align: center;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'TinkoffSans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.header {
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 10;
+}

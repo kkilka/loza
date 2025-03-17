@@ -1,0 +1,39 @@
+:root {
+  /* Layout & Sizing */
+  --column-width: 25rem;
+  --column-gap: 1.5rem;
+  --task-padding: 1.5rem;
+  --task-margin: 0.5rem;
+  --column-title-margin: 1.5rem;  /* new variable */
+  --board-padding: 2rem;
+  --border-radius-card: 30px;
+  --task-title-margin: 0.75rem;  /* new */
+
+  /* Colors */
+  --color-background: #f4f5f7;
+  --color-surface: white;
+  --color-text-primary: #000;
+  --color-text-secondary: #666;
+  --color-delete: red;
+  --color-delete-bg: #fff0f0;
+  --color-border: #80EF80;
+
+  /* Typography */
+  --font-size-column-title: 32px;
+  --font-size-task-title: 32px;
+  --font-size-task-description: 22px;
+  --line-height-title: 1.1;
+  --line-height-description: 1.4;
+  
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.12);
+  --shadow-task: 0 1px 3px var(--shadow-color);
+  
+  /* Animation */
+  --animation-duration: 0.15s;
+  --animation-duration-delete: 0.2s;
+  --animation-timing: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Borders */
+  --border-width: 5px;  /* new */
+}

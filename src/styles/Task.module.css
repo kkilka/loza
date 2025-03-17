@@ -1,0 +1,153 @@
+.taskCard {
+  padding: calc(var(--task-padding) - var(--border-width));
+  margin: var(--task-margin) 0;
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-card);
+  box-shadow: var(--shadow-task);
+  cursor: grab;
+  position: relative;
+  transition: all var(--animation-duration) var(--animation-timing);
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dragging {
+  opacity: 0;
+  cursor: grabbing;
+}
+
+.removing {
+  animation: removeTask var(--animation-duration-delete) ease-in-out forwards;
+  pointer-events: none;
+  border: var(--border-width) dashed var(--color-delete);
+  background: var(--color-delete-bg);
+}
+
+.deletionPlaceholder {
+  /* Inherit default card styles and override only what's needed */
+  border: var(--border-width) dashed var(--color-delete);
+  background: var(--color-delete-bg);
+  animation: fadeIn 0.2s ease forwards;
+  visibility: visible;
+}
+
+.exitingPlaceholder {
+  border: 1px dashed #d00;
+  background: #fff0f0;
+  animation: hidePlaceholder 0.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+    visibility: visible;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+  }
+}
+
+@keyframes hidePlaceholder {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes showDeletionPlaceholder {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+@keyframes hideDeletionPlaceholder {
+  from {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes removeTask {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    border: var(--border-width) dashed var(--color-delete);
+    background: var(--color-delete-bg);
+    max-height: 200px;
+    margin: var(--task-margin) 0;
+    padding: calc(var(--task-padding) - var(--border-width));
+    transform-origin: top;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    visibility: hidden;
+  }
+}
+
+/* New cancel removal style and animation */
+.cancelingRemoval {
+  animation: cancelRemoval 0.2s ease-out forwards;
+}
+
+@keyframes cancelRemoval {
+  from {
+    opacity: 0.8;
+    transform: scale(1);
+    border: var(--border-width) dashed var(--color-delete);
+    background: var(--color-delete-bg);
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    transform: scale(0.95);
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
+  }
+}
+
+.taskTitle {
+  margin: 0 0 var(--task-title-margin) 0;
+  font-size: var(--font-size-task-title);
+  color: var(--color-text-primary);
+  text-align: left;
+  font-weight: bold;
+  line-height: var(--line-height-title);
+}
+
+.taskDescription {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-task-description);
+  line-height: var(--line-height-description);
+}
+
+.overlayTask {
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  background: white;
+}
